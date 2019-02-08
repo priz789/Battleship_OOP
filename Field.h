@@ -6,5 +6,5 @@ private:
 		int cells[10][10];
 public:
 	Field();
-	void Draw();
+	void DrawField();
 };

@@ -1,6 +1,7 @@
 #include "Field.h"
 
-using namespace std;
+using std::cout;
+using std::endl;
 
 Field::Field()
 {
@@ -12,7 +13,7 @@ Field::Field()
 		}
 	}
 }
-void Field::Draw()
+void Field::DrawField()
 {
 	for (int i = 0; i < 10; i++)
 	{
