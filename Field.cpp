@@ -1,13 +1,12 @@
 #include "Field.h"
 
-using std::cout;
-using std::endl;
+using namespace std;
 
 Field::Field()
 {
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < FIELD_SIZE_Glob; i++)
 	{
-		for (int j = 0; j < 10; j++)
+		for (int j = 0; j < FIELD_SIZE_Glob; j++)
 		{
 			cells[i][j] = 0;
 		}
@@ -15,9 +14,9 @@ Field::Field()
 }
 void Field::DrawField()
 {
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < FIELD_SIZE_Glob; i++)
 	{
-		for (int j = 0; j < 10; j++)
+		for (int j = 0; j < FIELD_SIZE_Glob; j++)
 		{
 			cout << cells[i][j];
 		}
