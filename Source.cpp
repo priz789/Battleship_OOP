@@ -25,27 +25,40 @@ int main()
 	 
 	// TODO: create scoretable from file and to file
 	
+	Game MainGame;
+
+	//debug tests
+
+	MainGame.StartNewGame();
+
+	//TODO: Hardcode menu!
+
+	/*
 	int choice = 0;
+	int choice2 = 0;
 	MainMenu.ShowMenu();
 	MainMenu.SetChoice();
 	choice = MainMenu.GetChoice();
-	cout << "\nchoice is " << choice << endl;
-	do {
+	cout << "\nchoice is " << choice << endl;*/
+	
+	/*do {
 		switch (choice)
 		{
 		case(1):
 			NewGameMenu.ShowSubMenu();
-			choice = NewGameMenu.GetChoice();
-			switch (choice)
+			NewGameMenu.SetChoice();
+			choice2 = NewGameMenu.GetChoice();
+			switch (choice2)
 			{
 			case(1):
+				MainGame.StartNewGame();
 				break;
 			case(2):
+				MainGame.StartNewGame();
 				break;
-			case(3):
+			default:
 				break;
 			}
-				break;
 		case(2):
 			LoadGameMenu.ShowSubMenu();
 			break;
@@ -57,7 +70,7 @@ int main()
 		case(27):
 			break;
 		}
-	} while (choice == 27);
+	} while (choice == 27);*/
 
 	//TODO: create submenu system in a class Menu
 }

@@ -12,8 +12,9 @@ private:
 	int direction; // direction 0 = up, 1 = right, 2 = down, 3 = left
 	int** decksArray;
 public:
-	Ship(int _decks = 1, int _x = 0, int _y = 0, int _direction = 1); 
+	Ship(int _decks = 1, int _x = 0, int _y = 0, int _direction = 2); 
 	void PlaceShip(int _x, int _y, int _direction);
 	void HitShip(int _x, int _y);
 	bool GetStatus();
+	void SetFieldCellStatus(int _deckNum, int& _status);
 };

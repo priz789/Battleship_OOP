@@ -1,6 +1,6 @@
 #include "Ship.h"
 
-Ship::Ship(int _decks = 1, int _x = 0, int _y = 0, int _direction = 2) 
+Ship::Ship(int _decks, int _x, int _y, int _direction) 
 {
 	decks = _decks;
 	activeDecks = decks;
@@ -9,7 +9,7 @@ Ship::Ship(int _decks = 1, int _x = 0, int _y = 0, int _direction = 2)
 	for (int i = 0; i < decks; i++)
 	{
 		decksArray[i] = new int[3];
-		decksArray[i][2] = 1; //Status 1 - active, 0 - down
+		decksArray[i][2] = 3; // similar to Field class cell status: 0 - aveliable, non-hit; 1 - not-aveliable, non-hit; 2 - not-aveliable, hit; 3 - occupied, non-hit; 4 - occupied, hit 
 	}
 	PlaceShip(_x, _y, _direction);
 	isActive = 1;
@@ -23,8 +23,8 @@ void Ship::PlaceShip(int _x, int _y, int _direction)
 	case'0':
 		for (int i = 0; i < decks; i++)
 		{
-			decksArray[i][0] = _x;
-			decksArray[i][1] = _y - i;
+			decksArray[i][0] = _x; // Coords
+			decksArray[i][1] = _y - i; // Coords
 		}
 		break;
 	case'1':
@@ -72,4 +72,9 @@ bool Ship::GetStatus() //Status 1 - active, 0 - down
 		isActive = 0;
 	}
 	return isActive + isPlaced; 
+}
+
+void Ship::SetFieldCellStatus(int _deckNum, int& _status)
+{
+	_status = this->decksArray[_deckNum][2];
 }
