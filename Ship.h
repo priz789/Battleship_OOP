@@ -16,5 +16,8 @@ public:
 	void PlaceShip(int _x, int _y, int _direction);
 	void HitShip(int _x, int _y);
 	bool GetStatus();
-	void SetFieldCellStatus(int _deckNum, int& _status);
+	int GetFieldCellStatus(int _deckNum);
+	int GetX();
+	int GetY();
+	int GetDirection();
 };

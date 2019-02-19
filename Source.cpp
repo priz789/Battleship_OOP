@@ -5,6 +5,8 @@
 
 using namespace std;
 
+//TODO: Remove dynamic array from ship class and replace it with a class
+
 int main()
 {
 	//setlocale(LC_ALL, "Russian"); //Подключение русских символов

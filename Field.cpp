@@ -86,7 +86,7 @@ void Field::PlaceShip(int _decks, int _counter)
 	coords.resize(3);
 	getline(cin, coords);
 	int x = int(coords[0]) - 97;
-	int y = int(coords[1]) - 30;
+	int y = int(coords[1]) - 48;
 	string direction;
 	direction.resize(2);
 	cout << "\n Choose direction for your ship(0 = up, 1 = right, 2 = down, 3 = left): ";
@@ -99,5 +99,25 @@ void Field::PlaceShip(int _decks, int _counter)
 
 void Field::UpdateShipStatus(int _decks, int _counter)
 {
-	arrayOfShips[_counter].SetFieldCellStatus(_decks); //YOU ARE HERE!
+	for (int i = 0; i < _decks; i++)
+	{
+		int x = arrayOfShips[_counter].GetX();
+		int y = arrayOfShips[_counter].GetY();
+		if (arrayOfShips[_counter].GetDirection() == 0) // direction 0 = up, 1 = right, 2 = down, 3 = left
+		{
+			this->cells[x][y-i] = arrayOfShips[_counter].GetFieldCellStatus(i);
+		}
+		else if (arrayOfShips[_counter].GetDirection() == 1)
+		{
+			this->cells[x + i][y] = arrayOfShips[_counter].GetFieldCellStatus(i);
+		}
+		else if (arrayOfShips[_counter].GetDirection() == 2)
+		{
+			this->cells[x][y+i] = arrayOfShips[_counter].GetFieldCellStatus(i);
+		}
+		else if (arrayOfShips[_counter].GetDirection() == 3)
+		{
+			this->cells[x - i][y] = arrayOfShips[_counter].GetFieldCellStatus(i);
+		}
+	}
 }

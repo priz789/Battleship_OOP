@@ -74,7 +74,22 @@ bool Ship::GetStatus() //Status 1 - active, 0 - down
 	return isActive + isPlaced; 
 }
 
-void Ship::SetFieldCellStatus(int _deckNum, int& _status)
+int Ship::GetFieldCellStatus(int _deckNum)
 {
-	_status = this->decksArray[_deckNum][2];
+	return decksArray[_deckNum][2];
+}
+
+int Ship::GetX()
+{
+	return decksArray[0][0];
+}
+
+int Ship::GetY()
+{
+	return decksArray[0][1];
+}
+
+int Ship::GetDirection()
+{
+	return this->direction;
 }
