@@ -5,7 +5,7 @@
 
 using namespace std;
 
-//TODO: Remove dynamic array from ship class and replace it with a class
+//TODO: Remove dynamic array from ship class and replace it with a class //DONE
 
 int main()
 {

@@ -63,18 +63,22 @@ void Field::PlaceAllShips()
 		if (i == 0)
 		{
 			PlaceShip(4,i);
+			fourDecks++;
 		}
 		else if (i > 0 && i < 3)
 		{
 			PlaceShip(3,i);
+			threeDecks++;
 		}
 		else if (i > 2 && i < 6)
 		{
 			PlaceShip(2,i);
+			twoDecks++;
 		}
 		else
 		{
 			PlaceShip(1,i);
+			oneDecks++;
 		}
 	}
 }
@@ -91,9 +95,9 @@ void Field::PlaceShip(int _decks, int _counter)
 	direction.resize(2);
 	cout << "\n Choose direction for your ship(0 = up, 1 = right, 2 = down, 3 = left): ";
 	getline(cin,direction);
-	int iDirection = int(direction[0]) - 48;
+	int iDirection = int(direction[0])-48;
 	Ship tempShip(_decks,x,y,iDirection);
-	arrayOfShips[_counter] = tempShip;
+	arrayOfShips.push_back(tempShip);
 	UpdateShipStatus(_decks, _counter);
 }
 
@@ -101,23 +105,24 @@ void Field::UpdateShipStatus(int _decks, int _counter)
 {
 	for (int i = 0; i < _decks; i++)
 	{
-		int x = arrayOfShips[_counter].GetX();
-		int y = arrayOfShips[_counter].GetY();
-		if (arrayOfShips[_counter].GetDirection() == 0) // direction 0 = up, 1 = right, 2 = down, 3 = left
-		{
-			this->cells[x][y-i] = arrayOfShips[_counter].GetFieldCellStatus(i);
-		}
-		else if (arrayOfShips[_counter].GetDirection() == 1)
-		{
-			this->cells[x + i][y] = arrayOfShips[_counter].GetFieldCellStatus(i);
-		}
-		else if (arrayOfShips[_counter].GetDirection() == 2)
-		{
-			this->cells[x][y+i] = arrayOfShips[_counter].GetFieldCellStatus(i);
-		}
-		else if (arrayOfShips[_counter].GetDirection() == 3)
-		{
-			this->cells[x - i][y] = arrayOfShips[_counter].GetFieldCellStatus(i);
-		}
+		int x = arrayOfShips[_counter].GetX(i);
+		int y = arrayOfShips[_counter].GetY(i);
+		this->cells[x][y] = arrayOfShips[_counter].SetFieldCellStatus(i);
+		//if (arrayOfShips[_counter].GetDirection() == 0) // direction 0 = up, 1 = right, 2 = down, 3 = left
+		//{
+		//	this->cells[x][y-i] = arrayOfShips[_counter].SetFieldCellStatus(i);
+		//}
+		//else if (arrayOfShips[_counter].GetDirection() == 1)
+		//{
+		//	this->cells[x + i][y] = arrayOfShips[_counter].GetFieldCellStatus(i);
+		//}
+		//else if (arrayOfShips[_counter].GetDirection() == 2)
+		//{
+		//	this->cells[x][y+i] = arrayOfShips[_counter].GetFieldCellStatus(i);
+		//}
+		//else if (arrayOfShips[_counter].GetDirection() == 3)
+		//{
+		//	this->cells[x - i][y] = arrayOfShips[_counter].GetFieldCellStatus(i);
+		//}
 	}
 }

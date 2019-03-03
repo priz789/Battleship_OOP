@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include "Ship.h"
+#include<vector>
 
 const int FIELD_SIZE_Glob = 10;
 const int FOUR_DECKS_Max = 1;
@@ -12,7 +13,7 @@ const int MAX_SHIPS = 10;
 class Field {
 private:
 	int cells[FIELD_SIZE_Glob][FIELD_SIZE_Glob];
-	Ship arrayOfShips[MAX_SHIPS];
+	std::vector<Ship> arrayOfShips;
 	int fourDecks;
 	int threeDecks;
 	int twoDecks;
